@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="impresora">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="marca" type="xs:string"/>
+                <xs:element name="modelo" type="xs:string"/>
+                <xs:element name="peso" type="xs:decimal"/>
+                <xs:element name="tamaño" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="cartucho" type="xs:string"/>
+                <xs:element name="enred" type="xs:boolean" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="numSerie" type="xs:string" use="required"/>
+            <xs:attribute name="tipo" type="xs:string" use="required"/>
+            <xs:attribute name="compra" type="xs:int" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="impresoras">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="impresora" maxOccurs="unbounded" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
